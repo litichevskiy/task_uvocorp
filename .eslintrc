@@ -1,0 +1,21 @@
+{
+  "parser": "babel-eslint",
+  "extends": "airbnb",
+  "settings": {
+    "import/resolver": {
+      "webpack": {
+        "config": "webpack.config.js"
+      }
+    }
+  },
+  "globals": {
+    "document": false,
+    "fetch": false
+  },
+  "plugins": [
+    "babel"
+  ],
+  "rules": {
+    "camelcase": "off"
+  }
+}
