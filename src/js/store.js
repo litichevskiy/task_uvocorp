@@ -11,8 +11,7 @@ const store = {
     init() {
 
         pubsub.subscribe('changed-user-name', ( data ) => {
-            if( !data.name ) this.emptyUserName = true;
-            else this.emptyUserName = false;
+            this.emptyUserName = false;
 
             this.userName = data.name;
             pubsub.publish('change');
@@ -28,7 +27,7 @@ const store = {
                     this.userNameMemory = data.name;
                     pubsub.publish('setNewUserData');
                 }
-        })
+        });
 
         pubsub.subscribe('selected-new-tab', ( data ) => {
             let name = data.name;
