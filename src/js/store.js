@@ -1,4 +1,8 @@
 const pubsub = new ( require('./utils/PubSub.js') );
+const titles = {
+    'repos': 'Repositories',
+    'gists': 'Gists',
+}
 
 const store = {
     userName: '',
@@ -6,9 +10,12 @@ const store = {
     emptyUserName: false,
     is_repositories: true,
     avtiveTabName: 'repos',
+    headerActiveTab: '',
     is_gists: false,
 
     init() {
+
+        this.headerActiveTab = titles[ this.avtiveTabName ];
 
         pubsub.subscribe('changed-user-name', ( data ) => {
             this.emptyUserName = false;
@@ -42,6 +49,7 @@ const store = {
                     this.is_gists = false;
                 }
 
+            this.headerActiveTab = titles[ name ];
             pubsub.publish('change');
             pubsub.publish('updateTabInfo');
         });

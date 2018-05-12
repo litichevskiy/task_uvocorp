@@ -165,12 +165,3 @@ class UserInfo extends Component {
 }
 
 export default UserInfo;
-
- {/*<div className="containerCounter" data-role="repos" >
-                                <div className="counter">{state.public_repos}</div>
-                                <div className="title">repos</div>
-                            </div>
-                            <div className="containerCounter" data-role="gists" >
-                                <div className="counter">{state.public_gists}</div>
-                                <div className="title">gists</div>
-                            </div>*/}

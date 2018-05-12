@@ -18,10 +18,6 @@ class InputSearch extends Component {
         pubsub.subscribe('change', this.updateState );
     }
 
-    componentDidMount() {
-        this.refs.input.focus()
-    }
-
     componentWillUnmount() {
         pubsub.unSubscribe('change', this.updateState );
     }
@@ -46,7 +42,6 @@ class InputSearch extends Component {
             <div className="containerInputSearch">
                 <form className="form">
                     <input
-                        ref="input"
                         placeholder={'Username'}
                         className={classNameInputSearch}
                         type="text"

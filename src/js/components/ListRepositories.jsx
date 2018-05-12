@@ -13,6 +13,7 @@ class ListRepositories extends Component {
         this.state = {
             listRepos: [],
             userName: store.userName,
+            titleList: store.headerActiveTab,
         }
 
         this.initData = this.initData.bind( this );
@@ -28,7 +29,10 @@ class ListRepositories extends Component {
     }
 
     updateState() {
-        this.setState({ userName: store.userName });
+        this.setState({
+            userName: store.userName,
+            titleList: store.headerActiveTab
+        });
     }
 
     initData() {
@@ -46,12 +50,14 @@ class ListRepositories extends Component {
     }
 
     render() {
-
+        let state = this.state;
+        let titleListClassName = ( state.listRepos.length ) ? 'titleList' : 'hide';
         return(
             <div className="containerListRepositories">
+                <h3 className={titleListClassName}>{state.titleList}</h3>
                 <ul className="list">
                     {
-                        this.state.listRepos.map( ( item, index ) => {
+                        state.listRepos.map( ( item, index ) => {
                             return(
                                 <li key={index} className="itemList">
                                     <div className="blockDescription">
@@ -59,8 +65,14 @@ class ListRepositories extends Component {
                                         <a className="link" href={item.html_url} target="_blank">{item.name}</a>
                                         <p className="description">{item.description}</p>
                                         <div className="containerDate">
-                                            <span className="">created: {formatDate( item.created_at )}</span>
-                                            <span className="updated">updated: {formatDate( item.updated_at )}</span>
+                                            <span className="">
+                                                created:
+                                                <strong className="textBold">{formatDate( item.created_at )}</strong>
+                                            </span>
+                                            <span className="updated">
+                                                updated:
+                                                <strong className="textBold">{formatDate( item.updated_at )}</strong>
+                                            </span>
                                         </div>
                                     </div>
                                     <div className="blockInfo">
