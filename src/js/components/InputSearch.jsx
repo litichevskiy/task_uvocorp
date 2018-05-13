@@ -2,7 +2,6 @@ import React,{ Component } from 'react';
 import actionsApp from '../actionsApp';
 import store from '../store';
 const pubsub = new ( require('../utils/PubSub.js') );
-import '../../style/components/inputSearch/inputSearch.less';
 
 class InputSearch extends Component {
 
@@ -12,6 +11,7 @@ class InputSearch extends Component {
         this.state = {
             inputValue: store.userName,
             isEmpty: store.emptyUserName,
+            invalidSimbols: store.invalidSimbols,
         }
 
         this.updateState = this.updateState.bind( this );
@@ -23,7 +23,11 @@ class InputSearch extends Component {
     }
 
     updateState() {
-        this.setState({ inputValue: store.userName, isEmpty: store.emptyUserName });
+        this.setState({
+            inputValue: store.userName,
+            isEmpty: store.emptyUserName,
+            invalidSimbols: store.invalidSimbols
+        });
     }
 
     updateInputValue( event ) {
@@ -36,8 +40,10 @@ class InputSearch extends Component {
     }
 
     render() {
-        let classNameInputSearch = ( this.state.isEmpty ) ? 'inputSearch empty' : 'inputSearch';
-        let classNameButtnoSearch = ( this.state.inputValue ) ? 'buttnoSearch ready' : 'buttnoSearch';
+        let state = this.state;
+        let classNameInputSearch = ( state.isEmpty ) ? 'inputSearch empty' : 'inputSearch';
+        let classNameButtnoSearch = ( state.inputValue ) ? 'buttonSearch ready' : 'buttonSearch';
+        let classNameContainerErrorText = ( state.invalidSimbols ) ? 'containerErrorText' : 'hide';
         return(
             <div className="containerInputSearch">
                 <form className="form">
@@ -53,6 +59,10 @@ class InputSearch extends Component {
                             Search
                     </button>
                 </form>
+                <div className={classNameContainerErrorText}>
+                    <div className="header">Invalid simbols:</div>
+                    <div className="invalidSimbols">{state.invalidSimbols}</div>
+                </div>
             </div>
         );
     }

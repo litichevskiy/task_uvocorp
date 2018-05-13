@@ -1,5 +1,6 @@
 .containerUserInfo{
     margin-top: 1em;
+    border-right: 3px solid @grey-color;
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -66,9 +67,8 @@
     }
 
     .userName{
-        margin: 0;
+        color: @black-color;
         font-size: 1.4em;
-        font-weight: 300;
     }
 
     .date{
@@ -101,25 +101,29 @@
                 justify-content: center;
     }
 
+    .iconLocation{
+        fill: @grey-color;
+    }
+
     .containerLinks{
         display: inline-block;
-    }
+        color: @grey-color;
 
-    .containerLinks:after{
-        content: ']';
-        color: #b5b5b5;
-    }
+        &:after{
+            content: ']';
 
-    .containerLinks:before{
-        content: '[';
-        color: #b5b5b5;
+        }
+
+        &:before{
+            content: '[';
+        }
     }
 
     .link{
-        color: blue;
+        color: @blue-color;
         font-size: 0.9em;
         padding: 0 7px;
-        border-right: 1px solid #b5b5b5;
+        border-right: 1px solid @grey-color;
     }
 
     .link:last-child{
@@ -131,6 +135,10 @@
         margin: 0 8px;
         padding: 0 6px;
         cursor: pointer;
+
+        &.active{
+            color: @light-red-color;
+        }
     }
 
     .counter{
@@ -139,9 +147,5 @@
 
     .title{
         font-size: 0.85em;
-    }
-
-    .active{
-        color: #FF5722;
     }
 }

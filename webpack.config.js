@@ -5,7 +5,7 @@ const proxy = require('http-proxy-middleware');
 module.exports = {
   mode: 'development',
   devtool: 'source-map',
-  entry: './src/js/index.jsx',
+  entry: ['./src/js/index.jsx','./src/style/index.less'],
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'app.js',

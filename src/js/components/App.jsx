@@ -4,11 +4,11 @@ import 'normalize.css';
 import InputSearch from './InputSearch';
 import UserInfo from './UserInfo';
 import ListRepositories from './ListRepositories';
-import '../../style/components/containerApp/containerApp.less';
+import UserNotFound from './UserNotFound';
 
 class App extends Component {
 
-    constructor( props ) {
+    constructor() {
         super()
     }
 
@@ -22,6 +22,7 @@ class App extends Component {
                 </div>
                 <UserInfo />
                 <ListRepositories />
+                <UserNotFound />
             </div>
         )
     }

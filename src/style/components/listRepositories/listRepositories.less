@@ -14,7 +14,8 @@
     }
 
     .itemList{
-        border-top: 1px solid #b5b5b5;
+        border-top: 1px solid @grey-color;
+        color: @light-black-color;
         position: relative;
         padding: 0.65em 1.5em 0.65em 2.5em;
         display: -webkit-box;
@@ -29,6 +30,16 @@
         -webkit-justify-content: space-between;
             -ms-flex-pack: justify;
                 justify-content: space-between;
+
+        &:before{
+            content: '';
+            position: absolute;
+            right: 0;
+            height: 40%;
+            top: 30%;
+            width: 3px;
+            background: @grey-color;
+        }
     }
 
     .counterItemList{
@@ -36,7 +47,7 @@
         top: 0.2em;
         font-size: 0.6em;
         left: -2em;
-        color: #b5b5b5;
+        color: @grey-color;
     }
 
     .blockDescription{
@@ -77,7 +88,7 @@
     }
 
     .language{
-        background: grey;
+        background: @dark-grey-color;
         color: white;
         padding: 2px 5px;
         display: inline-block;
@@ -87,7 +98,7 @@
     }
 
     .link{
-        color: blue;
+        color: @blue-color;
         font-size: 0.95em;
     }
 
@@ -108,7 +119,7 @@
         margin-left: 7px;
     }
 
-    .hide{
-        display: none;
+    .svgIcon{
+        fill: @grey-color;
     }
 }
